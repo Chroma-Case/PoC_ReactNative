@@ -1,6 +1,7 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View, SafeAreaView, TouchableOpacity, Image } from 'react-native';
+
+import { LoginScreen } from './Login';
 
 export function SplashScreen() {
 

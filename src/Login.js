@@ -1,15 +1,11 @@
-import React from 'react';
 import { StatusBar } from 'expo-status-bar';
+import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { createStackNavigator } from "@react-navigation/stack";
 
-import { SplashScreen } from './src/SplashScreen';
-
-export default function App() {
+export function LoginScreen() {
   return (
     <View style={styles.container}>
-      <SplashScreen></SplashScreen>
-      <StatusBar style="auto" />
+        <Text>I'm the Login Screen !</Text>
     </View>
   );
 }
