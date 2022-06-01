@@ -1,16 +1,16 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View, SafeAreaView, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView, TouchableOpacity, Image } from 'react-native';
 
 export function SplashScreen() {
 
   return (
       <SafeAreaView>
         <View style={styles.container}>
-        <Text>--- ChromaCase Logo ---</Text>
-            <TouchableOpacity style={styles.button}>
-                <Text style={styles.buttonText}>Connect</Text>
-            </TouchableOpacity>
+        <Image style={styles.image} source={require("../assets/title.jpeg")}></Image>
+        <TouchableOpacity style={styles.button}>
+            <Text style={styles.buttonText}>Login</Text>
+        </TouchableOpacity>
         </View>
     </SafeAreaView>
   );
@@ -24,16 +24,22 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   button: {
-    borderRadius: 20,
-    paddingVertical: 15,
-    paddingHorizontal: 15,
+    borderRadius: 40,
+    paddingVertical: 10,
+    paddingHorizontal: 25,
     backgroundColor: 'green',
     justifyContent: 'center',
     alignItems: 'center'
   },
   buttonText: {
-    fontSize: 20,
+    fontSize: 15,
     color: 'white',
     fontWeight: 'bold'
+  },
+  image: {
+    resizeMode: 'center',
+    width: 300,
+    height: 70,
+    marginBottom: 200
   }
 });
