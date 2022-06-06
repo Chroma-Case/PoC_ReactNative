@@ -1,9 +1,10 @@
+import { NavigationContainer, useLinkProps } from '@react-navigation/native';
 import React from 'react';
 import { StyleSheet, Text, View, SafeAreaView, TouchableOpacity, Image } from 'react-native';
 
-import { LoginScreen } from './Login';
+import { LoginScreen } from './LoginScreen';
 
-export function SplashScreen() {
+export function SplashScreen({naviation}) {
 
   return (
       <SafeAreaView>
