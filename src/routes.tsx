@@ -10,14 +10,14 @@ const Routes = () => (
 	<NavigationContainer>
 		<Stack.Navigator>
 			<Stack.Screen
-				name="SplashScreen"
-				component={SplashScreen}
-				options={{ title: 'Welcome' }}
-			/>
-			<Stack.Screen
 				name="Home"
 				component={HomeScreen}
 			/>
+			<Stack.Screen
+				name="SplashScreen"
+				component={SplashScreen}
+				options={{ title: 'Welcome', headerShown: false }}
+				/>
 		</Stack.Navigator>
 	</NavigationContainer>
  )
