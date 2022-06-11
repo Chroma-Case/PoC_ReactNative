@@ -8,16 +8,16 @@ const Stack = createNativeStackNavigator();
 
 const Routes = () => (
 	<NavigationContainer>
-		<Stack.Navigator>
-			<Stack.Screen
-				name="Home"
-				component={HomeScreen}
-			/>
+		<Stack.Navigator initialRouteName="Home">
 			<Stack.Screen
 				name="SplashScreen"
 				component={SplashScreen}
 				options={{ title: 'Welcome', headerShown: false }}
-				/>
+			/>
+			<Stack.Screen
+				name="Home"
+				component={HomeScreen}
+			/>
 		</Stack.Navigator>
 	</NavigationContainer>
  )

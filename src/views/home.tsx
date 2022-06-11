@@ -14,22 +14,38 @@ const styles = StyleSheet.create({
 export const HomeScreen = () => {
 	return (
 		<ScrollView>
-			<Text style={{ fontSize: 30, fontWeight: 'bold', padding: 20 }}>Bienvenue, John!</Text>
-			<Text style={styles.trackGroupHeader}>Passez à l'étape supérieure</Text>
-			<ScrollView style={{ paddingVertical: 7 }} horizontal={true} contentContainerStyle={{}}>
-				{Array.from({ length: 10 }, (_, i) =>
-				<View style={{ paddingHorizontal: 8 }}>
-					<TrackCard key={i} />
-				</View>)}
-			</ScrollView>
-			<View style={{ alignItems: 'center', justifyContent: 'center', paddingVertical: 20 }}>
-				<Button label='Rechercher' color={'darkturquoise'} onPressed={() => { }} />
+			<View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
+				<View>
+					<Text style={{ fontSize: 30, fontWeight: 'bold', padding: 20 }}>Bienvenue, John!</Text>
+					<Text style={styles.trackGroupHeader}>Passez à l'étape supérieure</Text>
+					<FlatGrid itemDimension={110}
+						scrollEnabled={false}
+						data={Array.from({ length: 3 })}
+						renderItem={({ item: number }) => <TrackCard/>}
+					/>
+					<View>
+						<Text style={styles.trackGroupHeader}>Récemment joués</Text>
+						<FlatGrid
+							itemDimension={117}
+							scrollEnabled={false}
+							fixed
+							data={Array.from({ length: 4 })}
+							renderItem={({ item: number }) => <TrackCard/>}
+						/>
+					</View>
+				</View>
+				<View>
+					<View style={{ alignItems: 'center', justifyContent: 'center', paddingVertical: 20 }}>
+						<Button label='Rechercher' color={'darkturquoise'} onPressed={() => { }} />
+					</View>
+					<Text style={styles.trackGroupHeader}>Dernières recherches</Text>
+					<FlatGrid itemDimension={110}
+						scrollEnabled={false}
+						data={Array.from({ length: 7 })}
+						renderItem={({ item: number }) => <TrackCard/>}
+					/>
+				</View>
 			</View>
-			<Text style={styles.trackGroupHeader}>Dernières recherches</Text>
-			<FlatGrid itemDimension={110}
-				data={Array.from({ length: 7 })}
-				renderItem={({ item: number }) => <TrackCard/>}
-			/>
 		</ScrollView>
 	);
 }
