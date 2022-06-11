@@ -15,16 +15,18 @@ const styles = StyleSheet.create({
 
 export const HomeScreen = () => {
 	return (
-		<ScrollView>
+		<ScrollView contentContainerStyle={{ alignItems: 'center' }}>
 			<View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
 				<View>
 					<Text style={{ fontSize: 30, fontWeight: 'bold', padding: 20 }}>Bienvenue, John!</Text>
 					<Text style={styles.trackGroupHeader}>Passez à l'étape supérieure</Text>
-					<FlatGrid itemDimension={110}
-						scrollEnabled={false}
-						data={Array.from({ length: 3 })}
-						renderItem={({ item: number }) => <TrackCard/>}
-					/>
+					<View style={{ flexDirection: 'row', justifyContent: 'space-evenly'}}>
+						{
+							Array.from({ length: 3 }).map(i => (
+								<TrackCard/>
+							))
+						}
+					</View>
 					<View style={{ flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center' }}>
 						<View>
 							<Text style={styles.trackGroupHeader}>Mes compétences à améliorer</Text>
