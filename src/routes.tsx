@@ -3,12 +3,13 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react";
 import { HomeScreen } from "./views/home";
 import { SplashScreen } from "./views/splashscreen";
+import SearchScreen from "./views/search";
 
 const Stack = createNativeStackNavigator();
 
 const Routes = () => (
 	<NavigationContainer>
-		<Stack.Navigator initialRouteName="Home">
+		<Stack.Navigator initialRouteName="SplashScreen">
 			<Stack.Screen
 				name="SplashScreen"
 				component={SplashScreen}
@@ -17,6 +18,10 @@ const Routes = () => (
 			<Stack.Screen
 				name="Home"
 				component={HomeScreen}
+			/>
+			<Stack.Screen
+				name="Search"
+				component={SearchScreen}
 			/>
 		</Stack.Navigator>
 	</NavigationContainer>

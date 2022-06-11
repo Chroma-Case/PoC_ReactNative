@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
 	}
 })
 
-export const HomeScreen = () => {
+export const HomeScreen = ({ navigation }) => {
 	return (
 		<ScrollView contentContainerStyle={{ alignItems: 'center' }}>
 			<View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
@@ -46,7 +46,7 @@ export const HomeScreen = () => {
 				</View>
 				<View>
 					<View style={{ alignItems: 'center', justifyContent: 'center', paddingVertical: 20 }}>
-						<Button label='Rechercher' color={'darkturquoise'} onPressed={() => { }} />
+						<Button label='Rechercher' color={'darkturquoise'} onPressed={() => { navigation.navigate() }} />
 					</View>
 					<Text style={styles.trackGroupHeader}>Dernières recherches</Text>
 					<FlatGrid itemDimension={110}
