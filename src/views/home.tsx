@@ -3,6 +3,8 @@ import { StyleSheet, Text, View, Image, ScrollView } from 'react-native';
 import { FlatGrid } from 'react-native-super-grid';
 import Button from '../components/button';
 import TrackCard from '../components/track-card';
+import UserCompetenciesCard from '../components/user-competencies-card';
+import { RandomUserCompetencies } from '../models/user-competencies';
 
 const styles = StyleSheet.create({
 	trackGroupHeader: {
@@ -23,15 +25,21 @@ export const HomeScreen = () => {
 						data={Array.from({ length: 3 })}
 						renderItem={({ item: number }) => <TrackCard/>}
 					/>
-					<View>
-						<Text style={styles.trackGroupHeader}>Récemment joués</Text>
-						<FlatGrid
-							itemDimension={117}
-							scrollEnabled={false}
-							fixed
-							data={Array.from({ length: 4 })}
-							renderItem={({ item: number }) => <TrackCard/>}
-						/>
+					<View style={{ flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center' }}>
+						<View>
+							<Text style={styles.trackGroupHeader}>Mes compétences à améliorer</Text>
+							<UserCompetenciesCard userCompetencies={RandomUserCompetencies()}/>
+						</View>
+						<View>
+							<Text style={styles.trackGroupHeader}>Récemment joués</Text>
+							<FlatGrid
+								itemDimension={117}
+								scrollEnabled={false}
+								fixed
+								data={Array.from({ length: 4 })}
+								renderItem={({ item: number }) => <TrackCard/>}
+							/>
+						</View>
 					</View>
 				</View>
 				<View>
