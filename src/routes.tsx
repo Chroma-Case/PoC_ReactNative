@@ -2,6 +2,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react";
 import { HomeScreen } from "./views/home";
+import { LoginScreen } from "./views/login";
 import { SplashScreen } from "./views/splashscreen";
 
 const Stack = createNativeStackNavigator();
@@ -18,8 +19,12 @@ const Routes = () => (
 				name="Home"
 				component={HomeScreen}
 			/>
+			<Stack.Screen
+			name="Login"
+			component={LoginScreen}
+			/>
 		</Stack.Navigator>
 	</NavigationContainer>
- )
+)
 
- export default Routes
+export default Routes
