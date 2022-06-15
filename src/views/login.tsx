@@ -8,15 +8,14 @@ export const LoginScreen = ({navigation}) => {
     }
 
     return (
-        <SafeAreaView>
-            <Image style={styles.image} source={require("../assets/title.jpeg")}></Image>
+        <SafeAreaView style={styles.container}>
+            {/* <Image style={styles.image} source={require("../assets/title.jpeg")}></Image> */}
                 <View style={styles.box}>
                     <TextInput style={styles.textinput} placeholder='Email'/>
                     <TextInput style={styles.textinput} placeholder='Password' secureTextEntry={true}/>
                     <TouchableOpacity>
                         <Text style={styles.forgotText}>Forgot password?</Text>
                     </TouchableOpacity>
-            <Text>Hello World</Text>
             <Button label={'Login'} onPressed={() =>logMe()} color={'green'}/>
                 </View>
         </SafeAreaView>

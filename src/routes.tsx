@@ -20,8 +20,8 @@ const Routes = () => (
 				component={HomeScreen}
 			/>
 			<Stack.Screen
-			name="Login"
-			component={LoginScreen}
+				name="Login"
+				component={LoginScreen}
 			/>
 		</Stack.Navigator>
 	</NavigationContainer>

@@ -5,11 +5,11 @@ interface ButtonData {
     label: string,
     onPressed: () => void,
     color: ColorValue
-
 }
 
 const buttonText =  {
-    color: "white"
+    color: "white",
+    padding: 10
 }
 
 const Button = ({ label, onPressed, color }: ButtonData) => (
