@@ -9,7 +9,7 @@ export const LoginScreen = ({navigation}) => {
 
     return (
         <SafeAreaView style={styles.container}>
-            {/* <Image style={styles.image} source={require("../assets/title.jpeg")}></Image> */}
+            <Image style={styles.image} source={require("../../assets/banner.png")}></Image>
                 <View style={styles.box}>
                     <TextInput style={styles.textinput} placeholder='Email'/>
                     <TextInput style={styles.textinput} placeholder='Password' secureTextEntry={true}/>
