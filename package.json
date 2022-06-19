@@ -29,10 +29,12 @@
     "react-native-spinkit": "^1.5.1",
     "react-native-super-grid": "^4.4.0",
     "react-native-web": "0.17.7",
-    "react-router-native": "^5.3.2"
+    "react-router-native": "^5.3.2",
+    "test": "^3.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
+    "@evilmartians/lefthook": "^1.0.0",
     "@types/react": "~17.0.21",
     "@types/react-native": "~0.66.13",
     "@types/react-router-native": "^5.1.3",
