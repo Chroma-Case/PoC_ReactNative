@@ -10,7 +10,7 @@ export default class User {
 		/// count of notes correctly played over his course
 		public goodNotes: number,
 		/// record of the user's competencies
-		public competencies: UserCompetencies
+		public competencies?: UserCompetencies
 	) {}
 	
 	get level() {
