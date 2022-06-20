@@ -46,7 +46,7 @@ export const HomeScreen = ({ navigation }) => {
 				</View>
 				<View>
 					<View style={{ alignItems: 'center', justifyContent: 'center', paddingVertical: 20 }}>
-						<Button label='Rechercher' color={'darkturquoise'} onPressed={() => { navigation.navigate() }} />
+						<Button label='Rechercher' color={'darkturquoise'} onPressed={() => { navigation.navigate('Search') }} />
 					</View>
 					<Text style={styles.trackGroupHeader}>Dernières recherches</Text>
 					<FlatGrid itemDimension={110}
