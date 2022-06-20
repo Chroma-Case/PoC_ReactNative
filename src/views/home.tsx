@@ -1,52 +1,61 @@
-
 import React from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
-import { useIsFocused } from '@react-navigation/native';
+import { StyleSheet, Text, View, Image, ScrollView } from 'react-native';
+import { FlatGrid } from 'react-native-super-grid';
 import Button from '../components/button';
-
-export const HomeScreen = ({route, navigation}) => {
-    const {user} = route.params;
-    const focusPocus = useIsFocused();
-
-    React.useEffect(() => {
-        if (focusPocus) {
-            if (user.login == "") {
-                navigation.navigate('SplashScreen');
-            }
-        }
-    }, [focusPocus]);
-
-    const logMeOut = () => {
-        user.login = "";
-        user.name = "";
-        navigation.navigate('Login')
-    }
-
-    return (
-        <View>
-            <Text style={styles.title}>Welcome, {user.name}</Text>
-            <View style={styles.container}>
-                <Button label={'Logout'} onPressed={() => logMeOut()} color={'red'}></Button>
-            </View>
-        </View>
-    );
-}
+import TrackCard from '../components/track-card';
+import UserCompetenciesCard from '../components/user-competencies-card';
+import { RandomUserCompetencies } from '../models/user-competencies';
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    image: {
-        resizeMode: 'center',
-        width: 300,
-        height: 70,
-        marginBottom: 200
-    },
-    title: {
-        fontSize: 40,
-        fontWeight: 'bold',
-        marginTop: 30
-    },
+	trackGroupHeader: {
+		fontWeight: 'bold',
+		padding: 20
+	}
 })
+
+export const HomeScreen = ({ navigation }) => {
+	return (
+		<ScrollView contentContainerStyle={{ alignItems: 'center' }}>
+			<View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
+				<View>
+					<Text style={{ fontSize: 30, fontWeight: 'bold', padding: 20 }}>Bienvenue, John!</Text>
+					<Text style={styles.trackGroupHeader}>Passez à l'étape supérieure</Text>
+					<View style={{ flexDirection: 'row', justifyContent: 'space-evenly'}}>
+						{
+							Array.from({ length: 3 }).map(i => (
+								<TrackCard/>
+							))
+						}
+					</View>
+					<View style={{ flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center' }}>
+						<View>
+							<Text style={styles.trackGroupHeader}>Mes compétences à améliorer</Text>
+							<UserCompetenciesCard userCompetencies={RandomUserCompetencies()}/>
+						</View>
+						<View>
+							<Text style={styles.trackGroupHeader}>Récemment joués</Text>
+							<FlatGrid
+								itemDimension={117}
+								scrollEnabled={false}
+								fixed
+								data={Array.from({ length: 4 })}
+								renderItem={({ item: number }) => <TrackCard/>}
+							/>
+						</View>
+					</View>
+				</View>
+				<View>
+					<View style={{ alignItems: 'center', justifyContent: 'center', paddingVertical: 20 }}>
+						<Button label='Rechercher' color={'darkturquoise'} onPressed={() => { navigation.navigate('Search') }} />
+					</View>
+					<Text style={styles.trackGroupHeader}>Dernières recherches</Text>
+					<FlatGrid itemDimension={110}
+						scrollEnabled={false}
+						data={Array.from({ length: 7 })}
+						renderItem={({ item: number }) => <TrackCard/>}
+					/>
+				</View>
+			</View>
+		</ScrollView>
+	);
+}

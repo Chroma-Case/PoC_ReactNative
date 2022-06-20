@@ -1,6 +1,8 @@
 import React from 'react';
 import { StyleSheet, SafeAreaView, Text, View, TouchableOpacity, Image, TextInput } from 'react-native';
 import Button from '../components/button';
+import logo from '../../assets/banner.png';
+import FitImage from 'react-native-fit-image';
 
 export const LoginScreen = ({route, navigation}) => {
     const {user} = route.params;
@@ -9,7 +11,7 @@ export const LoginScreen = ({route, navigation}) => {
     const [hidden, setHidden] = React.useState(true);
 
     const logMe = () => {
-        if (emiel == "amaury.dc@free.fr" && passwd == "password") {
+        if (emiel == "a" && passwd == "a") {
             //api will send use informatiosn about customer, for now its hard coded
             user.login = emiel;
             user.name = "Amaury"
@@ -25,21 +27,21 @@ export const LoginScreen = ({route, navigation}) => {
     return (
         <SafeAreaView style={styles.container}>
 
-            <Image style={styles.image} source={require("../../assets/banner.png")}></Image>
-
-                <View style={styles.box}>
-                    <TextInput style={styles.textinput} placeholder='Email' autoComplete='email' 
-                    value={emiel} onChangeText={setEmail} autoCorrect={false} autoCapitalize='none' />
-
-                    <TextInput style={styles.textinput} placeholder='Password' autoCapitalize='none' 
-                    value={passwd} onChangeText={setPasswd} secureTextEntry={true} editable={true} />
-
-                    <TouchableOpacity onPress={() => navigation.navigate('Forgot')}>
-                        <Text style={styles.forgotText}>Forgot password?</Text>
-                    </TouchableOpacity>
-
-                    <Button label={'Login'} onPressed={() =>logMe()} color={'green'}/>
-                </View>
+            <FitImage
+				style={{ height: 200, width: 300 }}
+				resizeMode='center'
+				source={logo}
+			/>
+            <View style={styles.box}>
+                <TextInput style={styles.textinput} placeholder='Email' autoComplete='email' 
+                value={emiel} onChangeText={setEmail} autoCorrect={false} autoCapitalize='none' />
+                <TextInput style={styles.textinput} placeholder='Password' autoCapitalize='none' 
+                value={passwd} onChangeText={setPasswd} secureTextEntry={true} editable={true} />
+                <TouchableOpacity onPress={() => navigation.navigate('Forgot')}>
+                    <Text style={styles.forgotText}>Forgot password?</Text>
+                </TouchableOpacity>
+                <Button label={'Login'} onPressed={() =>logMe()} color={'green'}/>
+            </View>
         </SafeAreaView>
     );
 }
@@ -58,10 +60,7 @@ const styles = StyleSheet.create({
         marginBottom: 75
     },
     box: {
-        shadowColor: 'black',
-        shadowOpacity: 0.8,
-        shadowRadius: 10,
-        borderRadius: 20,
+        alignItems: 'stretch',
         padding: 30
     },
     textinput: {

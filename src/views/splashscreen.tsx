@@ -1,26 +1,20 @@
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, Image, StatusBar } from 'react-native';
 import Button from '../components/button';
+import FitImage from 'react-native-fit-image';
+import logo from '../../assets/banner.png';
+import React from 'react';
 
 export const SplashScreen = ({ navigation }) => {
-    return (
-        <View style={styles.container}>
-            <Image style={styles.image} source={require("../../assets/banner.png")}></Image>
-            <Button label={'Login'} onPressed={() => navigation.navigate('Login')} color={'green'}/>
-        </View>
-    );
+	return (
+		<View style={{ flex: 1, alignItems: 'center', justifyContent: 'space-evenly'}}> 
+			<FitImage
+				style={{ height: 200, width: 300 }}
+				resizeMode='center'
+				source={logo}
+			/>
+			<View style={{ alignItems: 'center', justifyContent: 'center' }}>
+				<Button label={'Login'} onPressed={() => navigation.push('Login')} color={'green'} />
+			</View>
+		</View>
+	);
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    image: {
-        resizeMode: 'center',
-        width: 300,
-        height: 70,
-        marginBottom: 200
-    }
-})
